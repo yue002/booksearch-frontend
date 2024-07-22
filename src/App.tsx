@@ -9,10 +9,11 @@ const App: React.FC = () => {
 
   const fetchBooks = async (query: string) => {
     try {
-      const response = await axios.get<Book[]>('/api/books', {
-        params: { q: query },
-      });
-      setBooks(response.data);
+      const response = await axios.get<Book[]>('/api/books');
+      const filteredBooks = response.data.filter(book =>
+        book.title.toLowerCase().includes(query.toLowerCase())
+      );
+      setBooks(filteredBooks);
     } catch (error) {
       console.error('Failed to fetch books', error);
     }
