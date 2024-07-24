@@ -4,12 +4,12 @@ services:
     container_name: bk-frontend
     build: .
     ports:
-      - ${NGINX_PORT}:5173
+      - ${NGINX_PORT}:3990
     networks:
       - booksearch_pf-net
     environment:
       - NGINX_PROXY=${NGINX_PROXY}
       - NGINX_PORT=${NGINX_PORT}
 networks:
-  booksearch-net: # Check by using `docker network ls` command
+  booksearch_pf-net: # Check by using `docker network ls` command
     external: true
