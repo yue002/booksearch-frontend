@@ -6,10 +6,10 @@ services:
     ports:
       - ${NGINX_PORT}:3990
     networks:
-      - booksearch_pf-net
+      - booksearch_g10-net
     environment:
       - NGINX_PROXY=${NGINX_PROXY}
       - NGINX_PORT=${NGINX_PORT}
 networks:
-  booksearch_pf-net: # Check by using `docker network ls` command
+  booksearch_g10-net: # Check by using `docker network ls` command
     external: true
